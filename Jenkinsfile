@@ -34,7 +34,7 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry(credentialsId: 'DockerHub_username_password', url: 'https://hub.docker.com/repositories/manideep9') {
+        withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
           sh  'docker push manideep9/samplewebapp:latest'
         //  sh  'docker push manideep9/samplewebapp:$BUILD_NUMBER' 
         }
